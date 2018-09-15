@@ -5,15 +5,33 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
 	public Transform Target;
+	public Transform WorkplaceTransform;
+	public Transform HomeTransform;
+	
 	public float Speed = 5;
 	private Vector3[] Path;
 	private int TargetIndex;
 
 	void Start()
 	{
-		PathRequestManager.RequestPath(transform.position, Target.position, OnPathFound);
+		//PathRequestManager.RequestPath(transform.position, Target.position, OnPathFound);
 	}
 
+	void Update()
+	{
+		//CallPathRequest();
+
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			CallPathRequest();
+		}
+	}
+
+
+	void CallPathRequest()
+	{
+		PathRequestManager.RequestPath(transform.position, Target.position, OnPathFound);
+	}
 
 	public void OnPathFound(Vector3[] newPath, bool PathSuccessful)
 	{
@@ -71,5 +89,12 @@ public class Unit : MonoBehaviour
 			}
 
 		}
+	}
+
+	public enum STATE
+	{
+		HOME,
+		WORK,
+		FOLLOW
 	}
 }

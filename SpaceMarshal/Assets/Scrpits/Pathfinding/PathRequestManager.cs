@@ -18,6 +18,10 @@ public class PathRequestManager : MonoBehaviour
 	{
 		Instance = this;
 		Pathfinding = GetComponent<Pathfinding>();
+		if (Pathfinding == null)
+		{
+			print("Path finding object is null" + this.gameObject.name);
+		}
 	}
 
 	public static void RequestPath(Vector3 PathStart, Vector3 PathEnd, Action<Vector3[], bool> CallBack)
