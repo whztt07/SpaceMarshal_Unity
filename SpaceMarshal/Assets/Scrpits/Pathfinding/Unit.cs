@@ -21,7 +21,7 @@ public class Unit : MonoBehaviour
 	{
 		//CallPathRequest();
 
-		if (Input.GetKeyDown(KeyCode.Q))
+		if (Input.GetKeyDown(KeyCode.Return))
 		{
 			CallPathRequest();
 		}

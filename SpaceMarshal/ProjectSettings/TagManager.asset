@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerTag
+  - PlayerCharactor
+  - Enemys
+  - Agents
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
   - Unwalkable
+  - 
   - 
   - 
   - 

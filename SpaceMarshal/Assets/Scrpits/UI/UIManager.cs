@@ -16,12 +16,30 @@ public class UIManager : MonoBehaviour
 
 	public bool IsImageFadding;
 
+	public float fillAmount;
+
+	public bool IsFillAmoutSet;
 	
 
 	// Update is called once per frame
 	//HACK::PROTO
 	void Update()
 	{
+		
+		if (Image1.fillAmount >= fillAmount)
+		{
+			IsFillAmoutSet = true;
+		}
+		else
+		{
+			IsFillAmoutSet = false;
+		}
+
+		if (IsFillAmoutSet)
+		{
+			Image1.fillAmount -= 0.1f * Time.smoothDeltaTime;
+		}
+
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
 			if (IsImageFadding)
@@ -37,5 +55,9 @@ public class UIManager : MonoBehaviour
 			
 		}
 
+		if (Input.GetKeyDown(KeyCode.Backspace))
+		{
+			fillAmount = 0.5f;
+		}
 	}
 }
